@@ -1,40 +1,38 @@
 <template>
-<header class="container-fluid">
-    <div class="row justify-content-between align-items-center">
-        <div class="col-2">
-            <h1 class="text-danger text-uppercase fw-bold">boolflix</h1>
-        </div>
-                
-        <div class="col-2 d-flex align-items-center">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Titoli" v-model="inputText" @keyup.enter="$emit('search', 'inputText')">
-                <button class="btn btn-outline-secondary bg-secondary text-black" type="button">Cerca</button>
+<header class="container-fluid fixed-top px-5">
+    <div class="row align-items-center">
+        <div class="col">
+            <img id="netflix-logo-header" src="../assets/img/netflix-logo.png" alt="netlfix logo">
+        </div> 
+        <div class="col">
+            <div class="input-group justify-content-end">
+                <input type="text" class="bg-dark text-white" placeholder="Digita un titolo" v-model="inputText" @keydown="$emit('search', inputText)">
             </div>
         </div>
     </div>
 </header>
 </template>
 
-<script>
 
+<script>
 export default {
     name: 'HeaderIndex',
     data: function(){
         return{
             inputText:"",
         }
-    }
-
+    },
 }
 </script>
 
+
 <style lang="scss">
 header.container-fluid{
-    background-color: black;
-    height: 80px;
+    background: linear-gradient(0deg, rgba(20,20,20,1) 0%, rgba(0,0,0,1) 100%); 
 
-    div.row{
-        height: 100%;
+
+    img#netflix-logo-header{
+        width: 90px;
     }
 }
 </style>

@@ -5,9 +5,9 @@
             <div id="card" class="col-6 col-sm-4 col-lg-2 mb-5 rounded-3" v-for="(movie, index) in movies" :key="index" >
                 <div id="overlay">
                     <img class="img-fluid rounded-3" v-if="movie.poster_path !== null" :src="'http://image.tmdb.org/t/p/w500' + movie.poster_path " :alt="movie.title">
-                    <div id="decription-card" class="text-white">
-                        <h6>Title: {{movie.original_title}}</h6>
-                        <h6>Overview: {{movie.overview}}</h6>
+                    <div id="decription-card" class="text-white p-3">
+                        <h5>{{movie.original_title}}</h5>
+                        <p>{{movie.overview}}</p>
                         <h6>Average: {{Math.floor(movie.vote_average)}}</h6>
                         <div v-if="movie.original_language === 'en'">Language: <country-flag country='gb' size="small"/></div>
                         <div v-else-if="movie.original_language === 'ja'">Language: <country-flag country='jp' size="small"/></div>
@@ -50,7 +50,6 @@ main{
         display: block;
         height: 80%;
         overflow-y: auto;
-        padding: 15px;
     }
 
     div#decription-card{
